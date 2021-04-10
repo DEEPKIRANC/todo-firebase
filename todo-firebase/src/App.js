@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import React,{useState} from "react";
 
 function App() {
+  const [todos,setTodos]=useState(["Watch IPL","Sanitize your hands","Take steam and stay hydrated"]);
+  const [input,setInput]=useState('');
+
+  const addTask=()=>{
+    setTodos(prevtodos=>[...prevtodos,input]);
+    setInput('');
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ToDo App using Firebase 💥</h1>
+      <input type="text"  value={input} onChange={e=>setInput(e.target.value)}/>
+      <button onClick={addTask}>Add Task</button>
+      <hr/>
+      <h2>Your Tasks for today</h2>
+      <ul style={{listStyle:'none'}}>
+        {todos.map(todo=>(
+          <li>{todo}</li>
+        ))}
+      </ul>
     </div>
   );
 }
