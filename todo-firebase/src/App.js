@@ -1,10 +1,15 @@
 import './App.css';
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Todo from "./components/Todo";
+import {db} from "./firebase";
 
 function App() {
-  const [todos,setTodos]=useState(["Watch IPL","Sanitize your hands","Take steam and stay hydrated"]);
+  const [todos,setTodos]=useState([]);
   const [input,setInput]=useState('');
+
+useEffect(()=>{
+  db.collection('todos').onSnapshot(snapshot=>{setTodos(snapshot.docs.map(doc=>doc.data().todo))})
+},[]);
 
   const addTask=(e)=>{
     e.preventDefault();
@@ -23,7 +28,7 @@ function App() {
       <h2>Your Tasks for today</h2>
       
         {todos.map(todo=>(
-          <li><Todo item={todo}/></li>
+          <Todo item={todo}/>
         ))}
       
       </form>
