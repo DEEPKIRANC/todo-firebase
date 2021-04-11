@@ -20,7 +20,7 @@ useEffect(()=>{
   }
   return (
     <div className="App">
-      <h1>ToDo App using Firebase 💥</h1>
+      <h1>ToDo App Using ReactJS And Firebase 💥</h1>
       
       <form>
       
@@ -31,7 +31,7 @@ useEffect(()=>{
       </button>
       </div>
       </form>
-      <hr style={{width:"70%"}}/>
+      <hr style={{width:"70%",backgroundColor:"white",height:"0.25rem"}}/>
       <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
       <h2>Your Tasks for Today</h2>
       {todos.length!==0?<div className="todo-card">
