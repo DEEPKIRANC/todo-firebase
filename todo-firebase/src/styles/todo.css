@@ -1,0 +1,45 @@
+*
+{
+    box-sizing: border-box;
+}
+.todo-card
+{
+    padding:1rem;
+    border-bottom-left-radius: 10px;
+    border:2px solid black;
+    max-width:70%;
+    width:max-content;
+    background-color: #fffde3;
+}
+.todo-item
+{
+    width:100%;
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+}
+.todo-item li
+{
+    flex:1;
+    font-size: 1.25rem;
+}
+.todo-item > span:nth-child(2)
+{
+    cursor: pointer;
+    font-weight:bold;
+    color:#fff;
+    background-color: #333;
+    font-size: 0.75rem;
+    
+    margin-left: 1rem;
+    padding:0.25rem;
+}
+.todo-item > span:nth-child(3)
+{
+    cursor: pointer;
+    font-weight:bold;
+    font-size: 1.5rem;
+    color:red;
+   
+}

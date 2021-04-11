@@ -1,5 +1,6 @@
 import React from 'react'
 import {db} from "../firebase"; 
+import "../styles/todo.css";
 function Todo({id,todo}) {
     
     const deleteTodo=()=>{
@@ -9,9 +10,10 @@ function Todo({id,todo}) {
     return (
         <div>
             <ul style={{listStyle:'none'}}>
-                <div style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
+                <div className="todo-item">
                     <li>{todo}</li>
-                    <button style={{marginLeft:"0.5rem"}}  onClick={deleteTodo}>Delete me</button>
+                    <span style={{marginLeft:"0.5rem"}}  >Edit</span>
+                    <span style={{marginLeft:"0.5rem"}}  onClick={deleteTodo}>&times;</span>
                 </div>
             </ul>
         </div>
