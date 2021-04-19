@@ -18,6 +18,7 @@
 
     justify-content: flex-start;
     align-items: center;
+    animation-duration: 1.75s;
 }
 .todo-item li
 {

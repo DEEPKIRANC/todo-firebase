@@ -30,3 +30,8 @@ body
   outline: none;
   cursor:pointer;
 }
+
+.todo-card
+{
+  animation-duration: 1.5s;
+}

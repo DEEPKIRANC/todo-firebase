@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {db} from "../firebase"; 
+import "animate.css";
 
 import "../styles/todo.css";
 function Todo({todo,id}) {
@@ -37,9 +38,9 @@ const [input,setInput]=useState('');
     }
    
     return (
-        <div key={id}>
+        <div key={id} >
             <ul style={{listStyle:'none'}}>
-                <div className="todo-item">
+                <div className="todo-item animate_animated animate__fadeInUp">
                     <li>{todo}</li>
                     <span style={{marginLeft:"0.5rem"}}   onClick={openbox}>Edit</span>
                     <span style={{marginLeft:"0.5rem"}}  onClick={deleteTodo}>&times;</span>

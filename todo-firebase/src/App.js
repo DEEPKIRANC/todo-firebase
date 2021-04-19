@@ -1,5 +1,6 @@
 import './App.css';
 import './styles/todo.css';
+import "animate.css";
 import React,{useState,useEffect} from "react";
 import Todo from "./components/Todo";
 import {db} from "./firebase";
@@ -24,7 +25,7 @@ useEffect(()=>{
       
       <form>
       
-      <div className="inputSection">
+      <div className="inputSection animate__animated animate__fadeIn">
       <input type="text" placeholder="Write your task here"  className="inputTask" value={input} onChange={e=>setInput(e.target.value)}/>
       <button disabled={!input}  type="submit" onClick={addTask}>
         Add New Task
@@ -34,7 +35,7 @@ useEffect(()=>{
       <hr style={{width:"70%",backgroundColor:"white",height:"0.25rem"}}/>
       <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
       <h2>Your Tasks for Today</h2>
-      {todos.length!==0?<div className="todo-card">
+      {todos.length!==0?<div className="todo-card animate__animated animate__fadeIn">
         {todos.map(todo=>(
           <Todo todo={todo.todo} id={todo.id}/>
         ))}
