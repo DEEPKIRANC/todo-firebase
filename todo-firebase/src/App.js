@@ -16,7 +16,14 @@ useEffect(()=>{
 
   const addTask=(e)=>{
     e.preventDefault();
+    if(input.length===0)
+    {
+      alert("This app won't accept blank entries!");
+    }
+    else
+    {
     db.collection('todos').add({'todo':input,'timestamp':firebase.firestore.FieldValue.serverTimestamp(),})
+    }
     setInput("");
   }
   return (
@@ -25,21 +32,21 @@ useEffect(()=>{
       
       <form>
       
-      <div className="inputSection animate__animated animate__fadeIn">
-      <input type="text" placeholder="Write your task here"  className="inputTask" value={input} onChange={e=>setInput(e.target.value)}/>
-      <button disabled={!input}  type="submit" onClick={addTask}>
-        Add New Task
-      </button>
-      </div>
+          <div className="inputSection animate__animated animate__fadeIn">
+            <input type="text" placeholder="Write your task here"  className="inputTask" value={input} onChange={e=>setInput(e.target.value)}/>
+            <button type="submit" onClick={addTask}>
+            Add New Task
+            </button>
+          </div>
       </form>
       <hr style={{width:"70%",backgroundColor:"white",height:"0.25rem"}}/>
       <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
-      <h2>Your Tasks for Today</h2>
-      {todos.length!==0?<div className="todo-card animate__animated animate__fadeIn">
-        {todos.map(todo=>(
-          <Todo todo={todo.todo} id={todo.id}/>
-        ))}
-      </div>:<span>All Tasks will appear here ..!</span>}
+        <h2>Your Tasks for Today</h2>
+        {todos.length!==0?<div className="todo-card animate__animated animate__fadeIn">
+          {todos.map(todo=>(
+            <Todo todo={todo.todo} id={todo.id}/>
+          ))}
+        </div>:<span>All Tasks will appear here ..!</span>}
       </div>
     </div>
   );

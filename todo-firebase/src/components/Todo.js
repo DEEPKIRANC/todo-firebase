@@ -29,7 +29,7 @@ const [input,setInput]=useState('');
         modal.style.display="block";
         
   
-        var span = document.getElementsByClassName("close")[0];
+       
     }
 
     const handleSpanClick=()=>{
